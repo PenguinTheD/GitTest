@@ -1,0 +1,96 @@
+{
+    "files": {
+        "InputFileForIssues.php": {
+            "errors": 6,
+            "messages": [
+                {
+                    "column": 21,
+                    "fixable": true,
+                    "line": 28,
+                    "message": "Legacy classes are not allowed; found \"Tx_Extbase_Domain_Model_Backenduser\", use \"TYPO3\\CMS\\Extbase\\Domain\\Model\\BackendUser\" instead",
+                    "severity": 5,
+                    "source": "Typo3Update.Classname.TypeHint.legacyClassname",
+                    "type": "ERROR"
+                },
+                {
+                    "column": 20,
+                    "fixable": true,
+                    "line": 31,
+                    "message": "Legacy classes are not allowed; found \"Tx_Extbase_Domain_Model_Backenduser\", use \"TYPO3\\CMS\\Extbase\\Domain\\Model\\BackendUser\" instead",
+                    "severity": 5,
+                    "source": "Typo3Update.Classname.TypeHint.legacyClassname",
+                    "type": "ERROR"
+                },
+                {
+                    "column": 25,
+                    "fixable": true,
+                    "line": 43,
+                    "message": "Legacy classes are not allowed; found \"Tx_Extbase_Domain_Model_Backenduser\", use \"TYPO3\\CMS\\Extbase\\Domain\\Model\\BackendUser\" instead",
+                    "severity": 5,
+                    "source": "Typo3Update.Classname.TypeHint.legacyClassname",
+                    "type": "ERROR"
+                },
+                {
+                    "column": 24,
+                    "fixable": true,
+                    "line": 46,
+                    "message": "Legacy classes are not allowed; found \"Tx_Extbase_Domain_Model_Backenduser\", use \"TYPO3\\CMS\\Extbase\\Domain\\Model\\BackendUser\" instead",
+                    "severity": 5,
+                    "source": "Typo3Update.Classname.TypeHint.legacyClassname",
+                    "type": "ERROR"
+                },
+                {
+                    "column": 32,
+                    "fixable": true,
+                    "line": 56,
+                    "message": "Legacy classes are not allowed; found \"Tx_Extbase_Domain_Model_Backenduser\", use \"TYPO3\\CMS\\Extbase\\Domain\\Model\\BackendUser\" instead",
+                    "severity": 5,
+                    "source": "Typo3Update.Classname.TypeHint.legacyClassname",
+                    "type": "ERROR"
+                },
+                {
+                    "column": 31,
+                    "fixable": true,
+                    "line": 59,
+                    "message": "Legacy classes are not allowed; found \"Tx_Extbase_Domain_Model_Backenduser\", use \"TYPO3\\CMS\\Extbase\\Domain\\Model\\BackendUser\" instead",
+                    "severity": 5,
+                    "source": "Typo3Update.Classname.TypeHint.legacyClassname",
+                    "type": "ERROR"
+                },
+                {
+                    "column": 31,
+                    "fixable": false,
+                    "line": 63,
+                    "message": "Calls to removed code are not allowed; found perm. Removed in 7.0. The logic is moved into EXT:beuser. See: https://docs.typo3.org/typo3cms/extensions/core/7.6/Changelog/7.0/Breaking-62339-MoveExtPermIntoExtBeuser.html",
+                    "severity": 5,
+                    "source": "Typo3Update.Classname.TypeHint.RemovedExtension.perm",
+                    "type": "WARNING"
+                },
+                {
+                    "column": 96,
+                    "fixable": false,
+                    "line": 63,
+                    "message": "Calls to removed code are not allowed; found perm. Removed in 7.0. The logic is moved into EXT:beuser. See: https://docs.typo3.org/typo3cms/extensions/core/7.6/Changelog/7.0/Breaking-62339-MoveExtPermIntoExtBeuser.html",
+                    "severity": 5,
+                    "source": "Typo3Update.Classname.TypeHint.RemovedExtension.perm",
+                    "type": "WARNING"
+                },
+                {
+                    "column": 31,
+                    "fixable": false,
+                    "line": 66,
+                    "message": "Calls to removed code are not allowed; found perm. Removed in 7.0. The logic is moved into EXT:beuser. See: https://docs.typo3.org/typo3cms/extensions/core/7.6/Changelog/7.0/Breaking-62339-MoveExtPermIntoExtBeuser.html",
+                    "severity": 5,
+                    "source": "Typo3Update.Classname.TypeHint.RemovedExtension.perm",
+                    "type": "WARNING"
+                }
+            ],
+            "warnings": 3
+        }
+    },
+    "totals": {
+        "errors": 6,
+        "fixable": 6,
+        "warnings": 3
+    }
+}

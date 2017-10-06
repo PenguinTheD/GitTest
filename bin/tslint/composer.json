@@ -1,0 +1,55 @@
+{
+    "name": "helmich/typo3-typoscript-lint",
+    "description": "Static code analysis for the TypoScript configuration language.",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/martin-helmich",
+    "authors": [
+        {
+            "name": "Martin Helmich",
+            "email": "m.helmich@mittwald.de",
+            "role": "lead"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/martin-helmich/typo3-typoscript-lint/issues"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.4",
+        "symfony/console": "~2.7|~3.0",
+        "symfony/dependency-injection": "~2.7|~3.0",
+        "symfony/config": "~2.7|~3.0",
+        "symfony/yaml": "~2.7|~3.0",
+        "symfony/finder": "~2.7|~3.0",
+        "symfony/event-dispatcher": "~2.7",
+        "helmich/typo3-typoscript-parser": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8.0",
+        "codeclimate/php-test-reporter": "dev-master",
+        "symfony/phpunit-bridge": "^3.0",
+        "mikey179/vfsStream": "^1.6"
+    },
+    "bin": [
+        "typoscript-lint"
+    ],
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-0": {
+            "Helmich\\TypoScriptLint": "src/"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
+        ],
+        "psr-4": {
+            "Helmich\\TypoScriptLint\\Tests\\Functional\\": "tests/functional",
+            "Helmich\\TypoScriptLint\\Tests\\Unit\\": "tests/unit"
+        }
+    }
+}

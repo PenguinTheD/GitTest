@@ -1,0 +1,61 @@
+services:
+  tokenize_command:
+    class: Helmich\TypoScriptLint\Command\TokenizeCommand
+    calls:
+      - [injectTokenizer, ['@tokenizer']]
+      - [injectTokenPrinter, ['@token_printer_structured']]
+  lint_command:
+    class: Helmich\TypoScriptLint\Command\LintCommand
+    calls:
+      - [injectLinter, ['@linter']]
+      - [injectLinterConfigurationLocator, ['@linter_configuration_locator']]
+      - [injectLoggerBuilder, ['@logger_builder']]
+      - [injectFinder, ['@finder']]
+      - [injectEventDispatcher, ['@dispatcher']]
+  parse_command:
+    class: Helmich\TypoScriptLint\Command\ParseCommand
+    calls:
+      - [injectParser, ['@parser']]
+  linter:
+    class: Helmich\TypoScriptLint\Linter\Linter
+    arguments: ['@tokenizer', '@parser', '@sniff_locator']
+  linter_configuration:
+    class: Helmich\TypoScriptLint\Linter\LinterConfiguration
+  linter_configuration_locator:
+    class: Helmich\TypoScriptLint\Linter\Configuration\ConfigurationLocator
+    arguments: ['@config_loader', '@config_processor']
+  logger_builder:
+    class: Helmich\TypoScriptLint\Logging\LinterLoggerBuilder
+  sniff_locator:
+    class: Helmich\TypoScriptLint\Linter\Sniff\SniffLocator
+
+  # Configuration management
+  config_locator:
+    class: Symfony\Component\Config\FileLocator
+    arguments:
+      - ['%dir.cwd%', '%dir.tslint_root%']
+  config_yaml_loader:
+    class: Helmich\TypoScriptLint\Linter\Configuration\YamlConfigurationLoader
+    arguments: ['@config_locator', '@yaml_parser', '@filesystem']
+  config_loader_resolver:
+    class: Symfony\Component\Config\Loader\LoaderResolver
+    arguments:
+      - ['@config_yaml_loader']
+  config_loader:
+    class: Symfony\Component\Config\Loader\DelegatingLoader
+    arguments: ['@config_loader_resolver']
+  config_processor:
+    class: Symfony\Component\Config\Definition\Processor
+  yaml_parser:
+    class: Symfony\Component\Yaml\Parser
+
+  # Tool classes
+  filesystem:
+    class: Helmich\TypoScriptLint\Util\Filesystem
+  finder:
+    class: Helmich\TypoScriptLint\Util\Finder
+    arguments: ['@symfony_finder', '@filesystem']
+  symfony_finder:
+    class: Symfony\Component\Finder\Finder
+  dispatcher:
+    synthetic: true
