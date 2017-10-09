@@ -1,5 +1,4 @@
 <?php
-
 namespace ImpNews\ImpNews\Controller;
 
 /**
@@ -44,7 +43,7 @@ class CategoryController extends \GeorgRinger\News\Controller\CategoryController
                     if ($storagePageNewsRecordsCount !== 0) {
                         $categoriesStoragePage[$categoryId] = $potentialPageWithNewsRecords;
                         if (! $first) {
-                            $idListHasNews .= ','.$categoryId;
+                            $idListHasNews .= ',' . $categoryId;
                         } else {
                             $idListHasNews .= $categoryId;
                             $first = false;
@@ -59,17 +58,19 @@ class CategoryController extends \GeorgRinger\News\Controller\CategoryController
         }
         $configurationManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Configuration\\ConfigurationManager');
         $ts = $configurationManager->getConfiguration(
-            \TYPO3\CMS\Extbase\Configuration\ConfigurationManager::CONFIGURATION_TYPE_FRAMEWORK, 'news');
+            \TYPO3\CMS\Extbase\Configuration\ConfigurationManager::CONFIGURATION_TYPE_FRAMEWORK,
+            'news'
+        );
         $this->view = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
 
         $templatePath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($ts['view']['templateRootPaths'][1] . 'Category/List.html');
         $this->view->setTemplatePathAndFilename($templatePath);
 
         $layoutRootPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($ts['view']['layoutRootPaths'][1]);
-        $this->view->setLayoutRootPaths(array($layoutRootPath));
+        $this->view->setLayoutRootPaths([$layoutRootPath]);
 
         $partialRootPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($ts['view']['partialRootPaths'][1]);
-        $this->view->setPartialRootPaths(array($partialRootPath));
+        $this->view->setPartialRootPaths([$partialRootPath]);
         if (! empty($categoriesStoragePage)) {
             $this->view->assign('categoriesStoragePage', $categoriesStoragePage);
         }
